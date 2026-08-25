@@ -1,58 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BEDROCKFITS - Free Minecraft Bedrock Boy Skins</title>
+<title>BEDROCKFITS - Free Boy Skins</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","skinview3d":"https://unpkg.com/skinview3d@3.4.1/libs/skinview3d.module.js"}}
+</script>
 <style>
 body{background:#0f0f0f;color:#fff;font-family:Arial;margin:0}
-.header{background:linear-gradient(135deg,#7b2ff7,#f107a3);padding:50px 20px;text-align:center}
-.header h1{margin:0;font-size:36px}
+.header{background:linear-gradient(135deg,#7b2ff7,#f107a3);padding:40px 20px;text-align:center}
 .grid{display:flex;flex-wrap:wrap;justify-content:center;padding:20px;gap:15px}
-.card{background:#1e1e1e;width:170px;border-radius:18px;padding:15px;text-align:center}
-.card img{width:120px;height:150px;object-fit:contain;border-radius:12px;background:#222}
-.card h3{font-size:15px;margin:12px 0;height:36px}
-.btn{display:block;background:#7b2ff7;color:#fff;padding:10px;border-radius:10px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#9d6aff}
+.card{background:#1e1e1e;width:170px;border-radius:16px;padding:12px;text-align:center;border:1px solid #333}
+.card canvas{width:140px!important;height:170px!important;margin:auto;display:block}
+.card h3{font-size:14px;margin:10px 0}
+.btn{display:block;background:#7b2ff7;color:#fff;padding:9px;border-radius:8px;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>BEDROCKFITS</h1>
-<p>Top 5 Boy Skins for Minecraft Bedrock & MCPE</p>
-</div>
-
+<div class="header"><h1>BEDROCKFITS</h1><p>3D Preview - Boy Skins for Bedrock</p></div>
 <div class="grid">
-
-<div class="card">
-<img src="boy1.png">
-<h3>Pro Boy Skin</h3>
-<a class="btn" href="boy1.png" download>Download</a>
+<div class="card"><canvas id="c1"></canvas><h3>Pro Boy Skin</h3><a class="btn" href="boy1.png" download>Download</a></div>
+<div class="card"><canvas id="c2"></canvas><h3>Shadow Ninja Boy</h3><a class="btn" href="boy2.png" download>Download</a></div>
+<div class="card"><canvas id="c3"></canvas><h3>Herobrine HD</h3><a class="btn" href="boy3.png" download>Download</a></div>
+<div class="card"><canvas id="c4"></canvas><h3>Gamer Boy 4D</h3><a class="btn" href="boy4.png" download>Download</a></div>
+<div class="card"><canvas id="c5"></canvas><h3>Cool Hoodie Boy</h3><a class="btn" href="boy5.png" download>Download</a></div>
 </div>
 
-<div class="card">
-<img src="boy2.png">
-<h3>Shadow Ninja Boy</h3>
-<a class="btn" href="boy2.png" download>Download</a>
-</div>
-
-<div class="card">
-<img src="boy3.png">
-<h3>Herobrine HD</h3>
-<a class="btn" href="boy3.png" download>Download</a>
-</div>
-
-<div class="card">
-<img src="boy4.png">
-<h3>Gamer Boy 4D</h3>
-<a class="btn" href="boy4.png" download>Download</a>
-</div>
-
-<div class="card">
-<img src="boy5.png">
-<h3>Cool Hoodie Boy</h3>
-<a class="btn" href="boy5.png" download>Download</a>
-</div>
-
-</div>
+<script type="module">
+import { SkinViewer } from 'skinview3d';
+function loadSkin(canvasId, skinUrl){
+  const viewer = new SkinViewer({canvas: document.getElementById(canvasId), width:140, height:170, skin: skinUrl});
+  viewer.animation = viewer.animation || {}; viewer.animation.paused=false; viewer.autoRotate=true; viewer.autoRotateSpeed=0.02;
+}
+loadSkin('c1','boy1.png'); loadSkin('c2','boy2.png'); loadSkin('c3','boy3.png'); loadSkin('c4','boy4.png'); loadSkin('c5','boy5.png');
+</script>
 </body>
   </html>
